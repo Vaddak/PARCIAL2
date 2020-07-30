@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
   scene = new QGraphicsScene();
   scene->setSceneRect(0,0,1000,800);
   ui->graphicsView->setScene(scene);
+  timer1 = new QTimer;
+  timer2 = new QTimer;
 
   //agrego las paredes exteriores
   up = new obstaculo(1000,20,0,0);
@@ -39,30 +41,41 @@ MainWindow::MainWindow(QWidget *parent)
   down = new obstaculo(1000,20,0,-780);
   scene->addItem(down);
 
-  uno = new ball(500,500);
-  scene->addItem(uno);
+
+ //agrego y remuevo las pelotas aleatoriamente y genero el numero aleatorio
+  srand(time(NULL));
+  int a=(1+rand()%(500-1));
+  timer1->start(a);
+  connect(timer1,&QTimer::timeout,this,&MainWindow::unoon);
+
+  timer2->start(a);
+  connect(timer2,&QTimer::timeout,this,&MainWindow::unooff);
 
 
 }
 
+void MainWindow::unooff()
+{
+  scene->removeItem(uno);
 
+}
+
+
+void MainWindow::unoon()
+{
+  srand(time(NULL));
+  int x =(rand()%(800));
+  int y =(rand()%(150));
+  uno = new ball(x,y);
+  scene->addItem(uno);
+}
 
 MainWindow::~MainWindow()
 {
   delete ui;
 }
-/*
-galletas.push_back(new Galleta(7,a,b));
-scene->addItem(galletas.back());
-
-*/
-
-void MainWindow::wallon()
-{
-  srand(time(NULL));
-  int x =(1 + rand()%(700-1));
-  int y =(1 + rand()%(700-1));
 
 
 
-}
+
+
