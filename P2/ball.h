@@ -10,10 +10,24 @@
 #include <QList>
 #include <QRectF>
 
-class ball
+class ball: public QObject, public QGraphicsItem
 {
+  int r;
+  int posx, posy;
+
 public:
-  ball();
+
+  ball(int x, int y);
+  QRectF boundingRect() const;
+  int getR();
+  void setR(int radio);
+  int getPosx();
+  void setPosx(int px);
+  int getPosy();
+  void setPosy(int py);
+  void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
+
 };
+
 
 #endif // BALL_H

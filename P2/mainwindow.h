@@ -32,10 +32,15 @@ public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
 
+
+//---------------------------------- LISTA DE OBJETOS ---------------------------------------
 private:
   QList <obstaculo*> obstaculos;
+  QList<ball*>pelotas;
+  ball *uno, *dos, *tres, *cuatro, *cinco, *seis, *siete, *ocho, *nueve, *diez;
   Ui::MainWindow *ui;
   QGraphicsScene *scene;
   obstaculo *up, *down, *right, *left, *wall1, *wall2, *wall3, *wall4, *wall5;
+
 };
 #endif // MAINWINDOW_H

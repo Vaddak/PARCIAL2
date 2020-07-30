@@ -26,11 +26,21 @@ MainWindow::MainWindow(QWidget *parent)
 {
   ui->setupUi(this);
   scene = new QGraphicsScene();
+  scene->setSceneRect(0,0,1000,800);
   ui->graphicsView->setScene(scene);
-  up = new obstaculo(1000,20,-0,-400);
+
+  //agrego las paredes exteriores
+  up = new obstaculo(1000,20,0,0);
   scene->addItem(up);
-  left = new obstaculo(20,100, 980,0);
+  left = new obstaculo(20,1000,980,0);
   scene->addItem(left);
+  right = new obstaculo(20,1000,0,0);
+  scene->addItem(right);
+  down = new obstaculo(1000,20,0,-780);
+  scene->addItem(down);
+
+  uno = new ball(500,500);
+  scene->addItem(uno);
 
 
 }
