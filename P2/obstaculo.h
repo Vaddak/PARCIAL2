@@ -10,13 +10,13 @@
 #include <QList>
 #include <QRectF>
 
-class obstaculo
+class obstaculo: public QGraphicsItem
 {
   int w,h;
   int posx, posy;
 
 public:
-  obstaculo(int x, int y);
+  obstaculo(int w_, int h_, int x, int y);
   int getW();
   void setW(int ancho);
   int getH();
@@ -27,6 +27,7 @@ public:
   void setPosy(int py);
   QRectF boundingRect() const;
   void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
+
 
 };
 
