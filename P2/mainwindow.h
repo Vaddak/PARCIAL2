@@ -42,18 +42,15 @@ public:
 //-------------------------- FUNCIONES PARA APARECER Y DESAPARECER PELOTAS -------------------------
   void unoon();
   void unooff();
- /* void doson();
+  void doson();
   void dosoff();
   void treson();
   void tresoff();
   void cuatroon();
-  void cuatroff();
+  void cuatrooff();
   void cincoon();
   void cincooff();
-  void seison();
-  void seisoff();
-  void sieteon();
-  void sieteoff();*/
+
 
 
   MainWindow(QWidget *parent = nullptr);
@@ -62,8 +59,8 @@ public:
 
 //---------------------------------- LISTA DE OBJETOS ---------------------------------------
 private:
-  QTimer *timer1, *timer2;
-  ball *uno, *dos, *tres, *cuatro, *cinco, *seis, *siete;
+  QTimer *timer1, *timer2, *timer3;
+  ball *uno, *dos, *tres, *cuatro, *cinco;
   Ui::MainWindow *ui;
   QGraphicsScene *scene;
   obstaculo *up, *down, *right, *left, *wall1, *wall2, *wall3, *wall4, *wall5;
